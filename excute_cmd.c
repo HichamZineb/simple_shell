@@ -7,6 +7,7 @@
  */
 void execute_command(char *cmd_path, char **argv)
 {
+if (cmd_path != NULL){
 if (fork() == 0)
 {
 execve(cmd_path, argv, NULL);
@@ -14,4 +15,5 @@ exit(0);
 }
 else
 wait(NULL);
+}
 }

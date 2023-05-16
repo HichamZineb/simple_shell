@@ -42,6 +42,6 @@ continue; }
 path_copy = _strdup(path);
 cmd_path = get_cmd_path(path_copy, argv); }
 execute_command(cmd_path, argv); }
-free(cmd_path);
 free(line);
+free(cmd_path);
 return (0); }
