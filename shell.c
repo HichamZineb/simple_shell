@@ -5,11 +5,11 @@
  **/
 int main(void)
 {char *line = NULL, *argv[MAX_ARGS], *path_copy, *path = NULL, *cmd_path;
-size_t line_size = 0;
 int argc;
 while (1)
-{write_str(STDOUT_FILENO, ":) ");
-if (getline(&line, &line_size, stdin) == -1)
+{write_str(STDOUT_FILENO, "$ ");
+line = _getline();
+if (line == NULL)
 {write_str(STDOUT_FILENO, "\n");
 free(line);
 exit(0); }
@@ -28,10 +28,10 @@ _print_env();
 if (argv[0][0] == '/')
 {
 if (access(argv[0], X_OK) == 0)
-_strcpy(cmd_path, argv[0]);
+{cmd_path = malloc(sizeof(argv[0]));
+_strcpy(cmd_path, argv[0]); }
 else
-{
-write_str(STDERR_FILENO, argv[0]);
+{write_str(STDERR_FILENO, argv[0]);
 write_str(STDERR_FILENO, ": command not found\n");
 continue; }}
 else
@@ -41,7 +41,6 @@ if (path == NULL)
 continue; }
 path_copy = _strdup(path);
 cmd_path = get_cmd_path(path_copy, argv); }
-execute_command(cmd_path, argv); }
-free(line);
-free(cmd_path);
+execute_command(cmd_path, argv);
+free(line); }
 return (0); }

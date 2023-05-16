@@ -12,6 +12,8 @@ if (cmd_path != NULL)
 if (fork() == 0)
 {
 execve(cmd_path, argv, NULL);
+perror(argv[0]);
+free(cmd_path);
 exit(0);
 }
 else

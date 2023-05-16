@@ -9,6 +9,7 @@ char *get_cmd_path(char *path_copy, char **argv)
 {
 char *dir, cmd_path[1024];
 dir = _strtok(path_copy, ":");
+free(path_copy);
 while (dir != NULL)
 {
 _strcpy(cmd_path, dir);
