@@ -31,8 +31,8 @@ if (access(argv[0], X_OK) == 0)
 {cmd_path = malloc(sizeof(argv[0]));
 _strcpy(cmd_path, argv[0]); }
 else
-{write_str(STDERR_FILENO, argv[0]);
-write_str(STDERR_FILENO, ": command not found\n");
+{perror(argv[0]);
+free(cmd_path);
 continue; }}
 else
 {path = get_path();
