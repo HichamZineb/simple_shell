@@ -11,7 +11,6 @@ while (1)
 line = _getline();
 if (line == NULL)
 {write_str(STDOUT_FILENO, "\n");
-free(line);
 exit(0); }
 argc = 0;
 argv[argc] = _strtok(line, " \n");
@@ -19,7 +18,8 @@ while (argv[argc] != NULL && argc < MAX_ARGS - 1)
 {argc++;
 argv[argc] = _strtok(NULL, " \n"); }
 if (argv[0] == NULL)
-continue;
+{free(line);
+continue; }
 if (_strcmp(argv[0], "exit") == 0)
 exit_shell(argv, line);
 if (_strcmp(argv[0], "env") == 0)

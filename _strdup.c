@@ -14,7 +14,6 @@ int len = strlen(str);
 char *new_str = malloc(len + 1);
 if (new_str == NULL)
 {
-free(new_str);
 return (NULL); }
 
 for (i = 0; i < len; i++)
