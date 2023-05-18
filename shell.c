@@ -21,8 +21,7 @@ argv[argc] = _strtok(NULL, " \n"); }
 if (argv[0] == NULL)
 continue;
 if (_strcmp(argv[0], "exit") == 0)
-{free(line);
-exit(0); }
+exit_shell(argv, line);
 if (_strcmp(argv[0], "env") == 0)
 _print_env();
 if (argv[0][0] == '/')

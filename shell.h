@@ -11,6 +11,7 @@
 #define READ_SIZE 1024
 extern char **environ;
 char *_getline(void);
+int exit_shell(char **argv, char *line);
 void _print_env(void);
 char *get_path(void);
 void execute_command(char *cmd_path, char **argv);

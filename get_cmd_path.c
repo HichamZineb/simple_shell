@@ -9,7 +9,6 @@ char *get_cmd_path(char *path_copy, char **argv)
 {
 char *dir, cmd_path[1024];
 dir = _strtok(path_copy, ":");
-free(path_copy);
 while (dir != NULL)
 {
 _strcpy(cmd_path, dir);
@@ -19,7 +18,8 @@ if (access(cmd_path, X_OK) == 0)
 break;
 dir = _strtok(NULL, ":");
 }
-if (dir == NULL)
+free(path_copy);
+if (dir == NULL && _strcmp(argv[0], "exit") != 0)
 {
 write_str(STDERR_FILENO, argv[0]);
 write_str(STDERR_FILENO, ": command not found\n");

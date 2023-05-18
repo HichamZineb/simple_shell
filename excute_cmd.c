@@ -7,7 +7,7 @@
  */
 void execute_command(char *cmd_path, char **argv)
 {
-if (cmd_path != NULL)
+if (cmd_path != NULL && _strcmp(argv[0], "exit") != 0)
 {
 if (fork() == 0)
 {
@@ -17,6 +17,8 @@ free(cmd_path);
 exit(0);
 }
 else
+{
+free(cmd_path);
 wait(NULL);
-}
+}}
 }
