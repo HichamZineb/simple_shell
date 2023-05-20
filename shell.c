@@ -6,6 +6,7 @@
 int main(void)
 {char *line = NULL, *argv[MAX_ARGS], *path_copy, *path = NULL, *cmd_path;
 int argc;
+chdir(_getenv("HOME="));
 while (1)
 {write_str(STDOUT_FILENO, "$ ");
 line = _getline();
@@ -20,10 +21,7 @@ argv[argc] = _strtok(NULL, " \n"); }
 if (argv[0] == NULL)
 {free(line);
 continue; }
-if (_strcmp(argv[0], "exit") == 0)
-exit_shell(argv, line);
-if (_strcmp(argv[0], "env") == 0)
-_print_env();
+handle_commands(argv, line, argc);
 if (argv[0][0] == '/')
 {
 if (access(argv[0], X_OK) == 0)
@@ -31,10 +29,9 @@ if (access(argv[0], X_OK) == 0)
 _strcpy(cmd_path, argv[0]); }
 else
 {perror(argv[0]);
-free(cmd_path);
 continue; }}
 else
-{path = get_path();
+{path = _getenv("PATH=");
 if (path == NULL)
 {write_str(STDERR_FILENO, "PATH environment not set\n");
 continue; }

@@ -19,7 +19,9 @@ break;
 dir = _strtok(NULL, ":");
 }
 free(path_copy);
-if (dir == NULL && _strcmp(argv[0], "exit") != 0)
+if (dir == NULL && _strcmp(argv[0], "exit") != 0
+&& _strcmp(argv[0], "setenv") != 0
+&& _strcmp(argv[0], "unsetenv") != 0 && _strcmp(argv[0], "cd") != 0)
 {
 write_str(STDERR_FILENO, argv[0]);
 write_str(STDERR_FILENO, ": command not found\n");

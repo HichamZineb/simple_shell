@@ -11,9 +11,14 @@
 #define READ_SIZE 1024
 extern char **environ;
 char *_getline(void);
+int _unsetenv(char *name);
+void handle_commands(char **argv, char *line, int argc);
+void handle_env_commands(char **argv);
+int _setenv(char *name,char *value);
 int exit_shell(char **argv, char *line);
 void _print_env(void);
-char *get_path(void);
+char *_getenv(char *name);
+void cd_command(char **argv, int argc);
 void execute_command(char *cmd_path, char **argv);
 char *get_cmd_path(char *path_copy, char **argv);
 void write_str(int fd, const char *str);
