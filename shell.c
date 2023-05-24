@@ -3,11 +3,9 @@
  *main - simple shell
  *Return: Always 0.
  **/
-int main(int ac, char **argv)
+int main(void)
 {char *line = NULL, *arv[MAX_ARGS], *path_copy, *path = NULL, *cmd_path;
 int argc;
-(void)ac;
-(void)argv;
 while (1)
 {
 if (isatty(STDIN_FILENO))
@@ -15,7 +13,7 @@ write_str(STDOUT_FILENO, "$ ");
 line = _getline();
 if (line == NULL)
 {write_str(STDOUT_FILENO, "\n");
-exit(0); }
+exit(EXIT_SUCCESS); }
 argc = 0;
 arv[argc] = _strtok(line, " \n");
 while (arv[argc] != NULL && argc < MAX_ARGS - 1)
