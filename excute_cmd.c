@@ -26,6 +26,8 @@ free(cmd_path);
 wait(NULL);
 }}
 else
-perror(argv[0]);
-}
+{
+write_str(STDERR_FILENO, argv[0]);
+write_str(STDERR_FILENO, ": command not found\n");
+}}
 }
