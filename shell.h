@@ -13,6 +13,7 @@ extern char **environ;
 char *_getline(void);
 int _unsetenv(char *name);
 void handle_commands(char **argv, char *line, int argc);
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 void handle_env_commands(char **argv);
 int _setenv(char *name, char *value);
 int exit_shell(char **argv, char *line);

@@ -22,7 +22,7 @@ i = 0;
 }
 if (size == 0)
 break;
-line = realloc(line, line_size + 2);
+line = _realloc(line, line_size, line_size + 2);
 if (line == NULL)
 return (NULL);
 line[line_size] = buffer[i];
