@@ -12,11 +12,7 @@ if (isatty(STDIN_FILENO))
 write_str(STDOUT_FILENO, "$ ");
 line = _getline();
 if (line == NULL)
-{
-if (isatty(STDIN_FILENO))
 exit(EXIT_SUCCESS);
-else
-exit(127); }
 argc = 0;
 arv[argc] = _strtok(line, " \n");
 while (arv[argc] != NULL && argc < MAX_ARGS - 1)
