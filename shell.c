@@ -6,14 +6,16 @@
 int main(void)
 {char *line = NULL, *arv[MAX_ARGS], *path_copy, *path = NULL, *cmd_path;
 int argc;
+size_t n;
 while (1)
 {
+n = 0;
 if (isatty(STDIN_FILENO))
 write_str(STDOUT_FILENO, "$ ");
-line = _getline();
-if (line == NULL)
+
+if (getline(&line, &n, stdin) == -1)
 {write_str(STDOUT_FILENO, "\n");
-exit(-1); }
+exit(0); }
 argc = 0;
 arv[argc] = _strtok(line, " \n");
 while (arv[argc] != NULL && argc < MAX_ARGS - 1)
