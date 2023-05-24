@@ -13,8 +13,9 @@ if (cmd_path != NULL && _strcmp(argv[0], "exit") != 0
 {
 if (fork() == 0)
 {
-execve(cmd_path, argv, NULL);
+if (execve(cmd_path, argv, NULL) == -1){
 perror(argv[0]);
+}
 free(cmd_path);
 exit(0);
 }
