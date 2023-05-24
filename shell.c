@@ -3,17 +3,17 @@
  *main - simple shell
  *Return: Always 0.
  **/
-int main(void)
+int main(int ac, char **argv)
 {char *line = NULL, *arv[MAX_ARGS], *path_copy, *path = NULL, *cmd_path;
 int argc;
-size_t n;
+(void)ac;
+(void)argv;
 while (1)
 {
-n = 0;
 if (isatty(STDIN_FILENO))
 write_str(STDOUT_FILENO, "$ ");
-
-if (getline(&line, &n, stdin) == -1)
+line = _getline();
+if (line == NULL)
 {write_str(STDOUT_FILENO, "\n");
 exit(0); }
 argc = 0;
