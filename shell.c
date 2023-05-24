@@ -6,7 +6,6 @@
 int main(void)
 {char *line = NULL, *argv[MAX_ARGS], *path_copy, *path = NULL, *cmd_path;
 int argc;
-chdir(_getenv("HOME="));
 while (1)
 {write_str(STDOUT_FILENO, "$ ");
 line = _getline();
