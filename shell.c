@@ -27,7 +27,7 @@ if (arv[0][0] == '/' || arv[0][0] == '.')
 cmd_path = malloc(sizeof(arv[0]));
 _strcpy(cmd_path, arv[0]); }
 else
-{path = _getenv("PATH=");
+{path = _getenv("PATH");
 if (path == NULL)
 {write_str(STDERR_FILENO, "PATH environment not set\n");
 continue; }
