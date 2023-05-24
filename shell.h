@@ -14,7 +14,7 @@ char *_getline(void);
 int _unsetenv(char *name);
 void handle_commands(char **argv, char *line, int argc);
 void handle_env_commands(char **argv);
-int _setenv(char *name,char *value);
+int _setenv(char *name, char *value);
 int exit_shell(char **argv, char *line);
 void _print_env(void);
 char *_getenv(char *name);
