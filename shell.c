@@ -12,7 +12,7 @@ if (isatty(STDIN_FILENO))
 write_str(STDOUT_FILENO, "$ ");
 line = _getline();
 if (line == NULL)
-{write_str(STDOUT_FILENO, "logout\n");
+{write_str(STDOUT_FILENO, "\n");
 exit(-1); }
 argc = 0;
 arv[argc] = _strtok(line, " \n");
