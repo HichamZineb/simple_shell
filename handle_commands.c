@@ -10,9 +10,23 @@
 void handle_commands(char **argv, char *line, int argc)
 {
 if (_strcmp(argv[0], "setenv") == 0 || _strcmp(argv[0], "unsetenv") == 0)
+{
+if (argv[3] == NULL)
 handle_env_commands(argv);
+else
+{
+write_str(STDERR_FILENO, argv[0]);
+write_str(STDERR_FILENO, ": too many arguments\n");
+}}
 else if (_strcmp(argv[0], "exit") == 0)
+{
+if (argv[2] == NULL)
 exit_shell(argv, line);
+else
+{
+write_str(STDERR_FILENO, argv[0]);
+write_str(STDERR_FILENO, ": too many arguments\n");
+}}
 else if (_strcmp(argv[0], "env") == 0)
 {
 if (argv[1] == NULL)
