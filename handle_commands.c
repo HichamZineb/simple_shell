@@ -19,10 +19,7 @@ write_str(STDERR_FILENO, argv[0]);
 write_str(STDERR_FILENO, ": too many arguments\n");
 }}
 else if (_strcmp(argv[0], "exit") == 0)
-{
-if (argv[2] == NULL)
 exit_shell(argv, line);
-}
 else if (_strcmp(argv[0], "env") == 0)
 {
 if (argv[1] == NULL)
