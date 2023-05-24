@@ -22,7 +22,7 @@ if (arv[0] == NULL)
 {free(line);
 continue; }
 handle_commands(arv, line, argc);
-if (arv[0][0] == '/')
+if (arv[0][0] == '/' || arv[0][0] == '.')
 {
 cmd_path = malloc(sizeof(arv[0]));
 _strcpy(cmd_path, arv[0]); }
