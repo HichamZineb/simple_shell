@@ -7,7 +7,9 @@ int main(void)
 {char *line = NULL, *argv[MAX_ARGS], *path_copy, *path = NULL, *cmd_path;
 int argc;
 while (1)
-{write_str(STDOUT_FILENO, "$ ");
+{
+if (isatty(STDIN_FILENO))
+write_str(STDOUT_FILENO, "$ ");
 line = _getline();
 if (line == NULL)
 {write_str(STDOUT_FILENO, "\n");
