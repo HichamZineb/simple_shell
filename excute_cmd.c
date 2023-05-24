@@ -7,7 +7,7 @@
  */
 void execute_command(char *cmd_path, char **argv)
 {
-if (_strcmp(argv[0], "exit") != 0
+if (cmd_path != NULL && _strcmp(argv[0], "exit") != 0
 && _strcmp(argv[0], "setenv") != 0
 && _strcmp(argv[0], "unsetenv") != 0 && _strcmp(argv[0], "cd") != 0)
 {
