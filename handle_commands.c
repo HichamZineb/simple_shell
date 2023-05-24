@@ -14,7 +14,10 @@ handle_env_commands(argv);
 else if (_strcmp(argv[0], "exit") == 0)
 exit_shell(argv, line);
 else if (_strcmp(argv[0], "env") == 0)
+{
+if (argv[1] == NULL)
 _print_env();
+}
 else if (_strcmp(argv[0], "cd") == 0)
 cd_command(argv, argc);
 }
