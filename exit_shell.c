@@ -20,10 +20,10 @@ if (*arg >= '0' && *arg <= '9')
 status = status * 10 + (*arg - '0');
 else
 {
-write_str(STDERR_FILENO, "./hsh:1:exit: Illegal number:");
+write_str(STDERR_FILENO, "exit: Illegal number: ");
 write_str(STDERR_FILENO, argv[1]);
 write_str(STDERR_FILENO, "\n");
-exit(2);
+return (0);
 }
 arg++;
 }
