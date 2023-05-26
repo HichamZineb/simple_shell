@@ -9,8 +9,6 @@ int exit_shell(char **argv, char *line)
 {
 int status = 0;
 char *arg;
-if (!isatty(STDIN_FILENO))
-status = 2;
 if (argv[1] != NULL)
 {
 arg = argv[1];
