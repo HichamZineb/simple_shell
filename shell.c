@@ -28,9 +28,6 @@ cmd_path = malloc(sizeof(arv[0]));
 _strcpy(cmd_path, arv[0]); }
 else
 {path = _getenv("PATH=");
-if (path == NULL)
-{write_str(STDERR_FILENO, "PATH environment not set\n");
-continue; }
 path_copy = _strdup(path);
 cmd_path = get_cmd_path(path_copy, arv); }
 execute_command(cmd_path, arv);
