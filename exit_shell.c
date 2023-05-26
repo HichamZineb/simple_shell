@@ -23,7 +23,7 @@ else
 write_str(STDERR_FILENO, "exit: Illegal number: ");
 write_str(STDERR_FILENO, argv[1]);
 write_str(STDERR_FILENO, "\n");
-status = 2;
+return (2);
 }
 arg++;
 }
